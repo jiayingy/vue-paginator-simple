@@ -6,7 +6,7 @@
         @click="prevPage" 
         v-if="pageCount > 1"
       >
-        上一页
+        {{ previousButtonText }}
       </li>
       <li :class="{active: curPage == 1}">
         <a :href="path+'1'">1</a>
@@ -40,7 +40,7 @@
         @click="nextPage" 
         v-if="pageCount > 1"
       >
-        下一页
+        {{ nextButtonText }}
       </li>
     </ul>
   </div>
@@ -64,6 +64,14 @@ export default {
     host: {
       type: String
     },
+    previousButtonText: {
+      type: String,
+      default: 'Previous'
+    },
+    nextButtonText: {
+      type: String,
+      default: 'Next'
+    }
   },
   data() {
     return {
